@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue 2</title>
+
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+        <script src="components/message.js"></script>
+        <script src="components/computed-properties.js"></script>
+        <script src="components/methods.js"></script>
+        <script src="components/vmodel.js"></script>
+        <script src="components/vmodel-checkboxes.js"></script>
+        <script src="components/emit.js"></script>
+        <script src="components/parent-data.js"></script>
+        <script src="components/child-data.js"></script>
+        <script src="components/child-methods.js"></script>
+        <script src="components/login-form.js"></script>
+        <script src="components/loops.js"></script>
+        <script src="components/conditionals.js"></script>
+    </head>
+    <body>
+        <div id="app" style="margin-bottom: 100px;">
+            <message></message>
+            <computed-properties></computed-properties>
+            <methods></methods>
+            <vmodel></vmodel>
+            <vmodel-checkboxes></vmodel-checkboxes>
+            <emit @carbrand="showCarBrandFromEmitCmp"></emit>
+            <parent-data></parent-data>
+            <child-data ref="childData"></child-data>
+            <child-methods ref="childMethods"></child-methods>
+            <login-form></login-form>
+            <loops></loops>
+            <conditionals></conditionals>
+        </div>
+
+        <script>
+            new Vue({
+                el: '#app',
+                mounted() {
+                    console.log('VueJS Instance mounted!!!!!');
+
+                    const cmpName = this.$refs.childData.cmpName;
+
+                    console.log(cmpName);
+
+                    setTimeout(() => {
+                        this.$refs.childMethods.showCmpName(); 
+                    }, 3000);
+                },
+                data () {
+                    return {
+                        appName: 'Vue from scratch'
+                    };
+                },
+                methods: {
+                    showCarBrandFromEmitCmp(carBrand) {
+                        alert(carBrand);
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
