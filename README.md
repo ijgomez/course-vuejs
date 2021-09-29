@@ -31,3 +31,8 @@
 31. Instalar Vue Cli 3 y crear nuestro primer proyecto con Vue UI.
 32. Entendiendo un proyecto creado con Vue Cli
 33. Introducción a Vuex
+34. Definir la tienda de datos con Vuex, state y mutations
+
+## Commands
+
+vue ui
